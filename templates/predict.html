@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Prediction</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+    <div class="container">
+        <img src="../static/bermix.png" id="background2" alt="">
+        <div class="form-div">
+            <form action="/result" method="post">
+                <div class="form-group">
+                    <input type="number" class="form-control" id="radius_mean" name="radius_mean" step="any"
+                        placeholder="Enter radius_mean">
+                    <input type="number" class="form-control" id="radius_se" name="radius_se" step="any"
+                        placeholder="Enter radius_se">
+                    <input type="number" class="form-control" id="radius_worst" name="radius_worst" step="any"
+                        placeholder="Enter radius_worst">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" class="form-control" id="texture_mean" name="texture_mean" step="any"
+                        placeholder="Enter texture_mean">
+                    <input type="number" class="form-control" id="texture_se" name="texture_se" step="any"
+                        placeholder="Enter texture_se">
+                    <input type="number" class="form-control" id="texture_worst" name="texture_worst" step="any"
+                        placeholder="Enter texture_worst">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" class="form-control" id="perimeter_mean" name="perimeter_mean" step="any"
+                        placeholder="Enter perimeter_mean">
+                    <input type="number" class="form-control" id="perimeter_se" name="perimeter_se" step="any"
+                        placeholder="Enter perimeter_se">
+                    <input type="number" class="form-control" id="perimeter_worst" name="perimeter_worst" step="any"
+                        placeholder="Enter perimeter_worst">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" class="form-control" id="area_mean" name="area_mean" step="any"
+                        placeholder="Enter area_mean">
+                    <input type="number" class="form-control" id="area_se" name="area_se" step="any"
+                        placeholder="Enter area_se">
+                    <input type="number" class="form-control" id="area_worst" name="area_worst" step="any"
+                        placeholder="Enter area_worst">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" class="form-control" id="smoothness_mean" name="smoothness_mean" step="any"
+                        placeholder="Enter smoothness_mean">
+                    <input type="number" class="form-control" id="smoothness_se" name="smoothness_se" step="any"
+                        placeholder="Enter smoothness_se">
+                    <input type="number" class="form-control" id="smoothness_worst" name="smoothness_worst" step="any"
+                        placeholder="Enter smoothness_worst">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" id="compactness_mean" name="compactness_mean" step="any"
+                        placeholder="Enter compactness_mean">
+                    <input type="number" class="form-control" id="compactness_se" name="compactness_se" step="any"
+                        placeholder="Enter compactness_se">
+                    <input type="number" class="form-control" id="compactness_worst" name="compactness_worst" step="any"
+                        placeholder="Enter compactness_worst">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" class="form-control" id="concavity_mean" name="concavity_mean" step="any"
+                        placeholder="Enter concavity_mean">
+                    <input type="number" class="form-control" id="concavity_se" name="concavity_se" step="any"
+                        placeholder="Enter concavity_se">
+                    <input type="number" class="form-control" id="concavity_worst" name="concavity_worst" step="any"
+                        placeholder="Enter concavity_worst">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" class="form-control" id="concave points_mean" name="concave points_mean"
+                        step="any" placeholder="Enter concave points_mean">
+                    <input type="number" class="form-control" id="concave points_se" name="concave points_se" step="any"
+                        placeholder="Enter concave points_se">
+                    <input type="number" class="form-control" id="concave points_worst" name="concave points_worst"
+                        step="any" placeholder="Enter concave points_worst">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" class="form-control" id="symmetry_mean" name="symmetry_mean" step="any"
+                        placeholder="Enter symmetry_mean">
+                    <input type="number" class="form-control" id="symmetry_se" name="symmetry_se" step="any"
+                        placeholder="Enter symmetry_se">
+                    <input type="number" class="form-control" id="symmetry_worst" name="symmetry_worst" step="any"
+                        placeholder="Enter symmetry_worst">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" class="form-control" id="fractal_dimension_mean" name="fractal_dimension_mean"
+                        step="any" placeholder="Enter fractal_dimension_mean">
+                    <input type="number" class="form-control" id="fractal_dimension_se" name="fractal_dimension_se"
+                        step="any" placeholder="Enter fractal_dimension_se">
+                    <input type="number" class="form-control" id="fractal_dimension_worst" step="any"
+                        name="fractal_dimension_worst" placeholder="Enter fractal_dimension_worst">
+                </div>
+
+                <button type="submit" class="submit-btn">Predict</button>
+            </form>
+        </div>
+        <div class="prediction-text">{{prediction_text}}</div>
+    </div>
+</body>
+
+</html>
