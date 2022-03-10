@@ -28,11 +28,12 @@ def result():
         print(prediction)
         output = round(prediction[0], 2)
         print(output)
-
-    if output == 0:
-        return render_template('predict.html', prediction_text='The patient has Malignant neoplasm')
+        if output == 0:
+            return render_template('predict.html', prediction_text='The patient has Malignant neoplasm')
+        else:
+            return render_template('predict.html', prediction_text='The patient has Benign neoplasm')
     else:
-        return render_template('predict.html', prediction_text='The patient has Benign neoplasm')
+        return render_template('predict.html')
 
 
 if __name__ == "__main__":
