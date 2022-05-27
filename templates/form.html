@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="../static/img/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Breast Cancer Prediction</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark mt-0 bg-dark pt-0 pb-0 sticky-top">
+        <div class="container container-fluid">
+            <a class="navbar-brand text-info" href="/">
+                <img src="../static/breast.png" alt="" width="50" height="50">
+                Breast Cancer Prediction
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/form">Predict Tool</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="predict" class="container">
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h2 class="fw-bold text-primary">Fill this form to predict breast cancer.</h2>
+            <hr>
+        </div>
+        <div class="container card bg-body shadow-lg rounded pt-3 pb-3 mb-5">
+            <form action="/result" method="POST" id="form">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Radius mean</label>
+                            <input type="text" class="form-control" id="radius_mean" name="radius_mean" placeholder="Enter radius_mean"
+                                required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Texture mean</label>
+                            <input type="text" class="form-control" id="texture_mean" name="texture_mean" placeholder="Enter texture_mean"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Perimeter mean</label>
+                            <input type="text" class="form-control" id="perimeter_mean" name="perimeter_mean" placeholder="Enter perimeter_mean"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Area mean</label>
+                            <input type="text" class="form-control" id="area_mean" name="area_mean" placeholder="Enter area_mean"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Smoothness mean</label>
+                            <input type="text" class="form-control" id="smoothness_mean" name="smoothness_mean" placeholder="Enter smoothness_mean"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Compactness mean</label>
+                            <input type="text" class="form-control" id="compactness_mean" name="compactness_mean" placeholder="Enter compactness_mean"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Concavity mean</label>
+                            <input type="text" class="form-control" id="concavity_mean" name="concavity_mean" placeholder="Enter concavity_mean"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Concave Points mean</label>
+                            <input type="text" class="form-control" id="concave_points_mean" name="concave_points_mean" placeholder="Enter concave_points_mean"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Symmetry mean</label>
+                            <input type="text" class="form-control" id="symmetry_mean" name="symmetry_mean" placeholder="Enter symmetry_mean"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Fractal Dimension mean</label>
+                            <input type="text" class="form-control" id="fractal_dimension_mean" name="fractal_dimension_mean" placeholder="Enter fractal_dimension_mean"
+                                required>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm">
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Radius se</label>
+                            <input type="text" class="form-control" id="radius_se" name="radius_se" placeholder="Enter radius_se"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Texture se</label>
+                            <input type="text" class="form-control" id="texture_se" name="texture_se" placeholder="Enter texture_se"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Perimeter se</label>
+                            <input type="text" class="form-control" id="perimeter_se" name="perimeter_se" placeholder="Enter perimeter_se"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Area se</label>
+                            <input type="text" class="form-control" id="area_se" name="area_se" placeholder="Enter area_se"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Smoothness se</label>
+                            <input type="text" class="form-control" id="smoothness_se" name="smoothness_se" placeholder="Enter smoothness_se"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Compactness se</label>
+                            <input type="text" class="form-control" id="compactness_se" name="compactness_se" placeholder="Enter compactness_se"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Concavity se</label>
+                            <input type="text" class="form-control" id="concavity_se" name="concavity_se" placeholder="Enter concavity_se"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Concave Points se</label>
+                            <input type="text" class="form-control" id="concave_points_se" name="concave_points_se" placeholder="Enter concave_points_se"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Symmetry se</label>
+                            <input type="text" class="form-control" id="symmetry_se" name="symmetry_se" placeholder="Enter symmetry_se"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Fractal Dimension se</label>
+                            <input type="text" class="form-control" id="fractal_dimension_se" name="fractal_dimension_se" placeholder="Enter fractal_dimension_se"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Radius worst</label>
+                            <input type="text" class="form-control" id="radius_worst" name="radius_worst"
+                                placeholder="Enter radius_worst" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Texture worst</label>
+                            <input type="text" class="form-control" id="texture_worst" name="texture_worst"
+                                placeholder="Enter texture_worst" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Perimeter worst</label>
+                            <input type="text" class="form-control" id="perimeter_worst" name="perimeter_worst"
+                                placeholder="Enter perimeter_worst" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Area worst</label>
+                            <input type="text" class="form-control" id="area_worst" name="area_worst"
+                                placeholder="Enter area_worst" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Smoothness worst</label>
+                            <input type="text" class="form-control" id="smoothness_worst" name="smoothness_worst"
+                                placeholder="Enter smoothness_worst" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Compactness worst</label>
+                            <input type="text" class="form-control" id="compactness_worst" name="compactness_worst"
+                                placeholder="Enter compactness_worst" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Concavity worst</label>
+                            <input type="text" class="form-control" id="concavity_worst" name="concavity_worst"
+                                placeholder="Enter concavity_worst" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Concave Points worst</label>
+                            <input type="text" class="form-control" id="concave_points_worst" name="concave_points_worst"
+                                placeholder="Enter concave_points_worst" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Symmetry worst</label>
+                            <input type="text" class="form-control" id="symmetry_worst" name="symmetry_worst"
+                                placeholder="Enter symmetry_worst" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label fw-bold text-primary">Fractal Dimension worst</label>
+                            <input type="text" class="form-control" id="fractal_dimension_worst" name="fractal_dimension_worst"
+                                placeholder="Enter fractal_dimension_worst" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div style="text-align: center;">
+                        <div class="row">
+                            <div class="col-sm">
+                                <button type="submit" id="submit" class="btn btn-primary w-100 mt-3">Predict
+                                    Result</button>
+                            </div>
+                            <div class="col-sm">
+                                <button id="resultBtn" class="btn btn-success w-100 mt-3">Show Result</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <span id="result">{{prediction_text}}</span>
+    </div>
+
+    <footer class="bg-dark text-white mt-3">
+        <div class="container">
+            <div class="row d-flex justify-content-between">
+                <div class="p-3 text-center col-sm">
+                    <img src="../static/breast.png" height="128px" width="128px" class="" alt="...">
+                    <h4>Breast Cancer Prediction</h4>
+                </div>
+                <div class="p-3 text-center col-sm">
+                    <img src="../static/diu.png" class="" alt="...">
+                    <h4>Dhaka International University</h4>
+                </div>
+                <div class="p-3 text-center col-sm">
+                    <img src="../static/who.png" class="" alt="...">
+                    <h4>World Health Organization</h4>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <footer class="bg-light d-flex justify-content-center pt-3">
+        <p class="text-center">
+            Copyright Ⓒ 2022 Dhaka International University. All Rights Reserved | Privacy & Data Protection |
+            Disclaimer
+        </p>
+    </footer>
+
+    <!-- Optional JavaScript Code to show result -->
+    <script>
+       document.getElementById('result').style.display = 'none';
+        var resultBtn = document.getElementById('resultBtn');
+        resultBtn.addEventListener('click', function() {
+            var result = document.getElementById('result');
+            if(result.innerHTML == ''){
+                Swal.fire({
+                    title: 'No Result Found',
+                    text: 'Please Predict Result First',
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Result',
+                    text: result.innerHTML,
+                    icon: 'info',
+                    confirmButtonText: 'OK'
+                });
+            }
+            
+        });
+    </script>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+
+</body>
+
+</html>

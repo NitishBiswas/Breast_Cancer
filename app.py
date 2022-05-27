@@ -11,12 +11,12 @@ model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
 
 
-@app.route('/predict/', methods=['GET', 'POST'])
+@app.route('/form', methods=['GET', 'POST'])
 def predict():
-    return render_template('predict.html')
+    return render_template('form.html')
 
 
 @app.route('/result', methods=['GET', 'POST'])
@@ -29,11 +29,11 @@ def result():
         output = round(prediction[0], 2)
         print(output)
         if output == 0:
-            return render_template('predict.html', prediction_text='The patient has Malignant neoplasm')
+            return render_template('form.html', prediction_text='The patient has Malignant neoplasm')
         else:
-            return render_template('predict.html', prediction_text='The patient has Benign neoplasm')
+            return render_template('form.html', prediction_text='The patient has Benign neoplasm')
     else:
-        return render_template('predict.html')
+        return render_template('form.html')
 
 
 if __name__ == "__main__":
